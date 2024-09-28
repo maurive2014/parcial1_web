@@ -13,15 +13,6 @@ function App() {
          <Route path="/home" element={<Home />} />
        </Routes>
      </BrowserRouter>
-      
-     {/* <NavBar></NavBar>
-     <BrowserRouter>
-       <Routes>
-         <Route path="/" element={<Mascotas />} />
-         <Route path="/mascotas" element={<Mascotas />} />
-         <Route path="/mascotas/:mascotaId" element={<Detail />} />
-       </Routes>
-     </BrowserRouter> */}
    </div>
   );
 }

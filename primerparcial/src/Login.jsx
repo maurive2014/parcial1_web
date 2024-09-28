@@ -14,16 +14,16 @@ function Login(){
     useEffect(()=>{
 
         if (formValues.password.length > 8){
-            setValidationStates({...validationStates, passwordState:true});
-        } else  {
-            setValidationStates({...validationStates, passwordState:false});
+          setValidationStates(prevState => ({ ...prevState, passwordState: true }));
+        } else  {  
+            setValidationStates(prevState => ({ ...prevState, passwordState: false }));
         }
         
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (formValues.email.match(emailPattern)) {
-            setValidationStates({...validationStates, emailState:true});
+            setValidationStates(prevState => ({ ...prevState, emailState: true }));
         } else  {
-            setValidationStates({...validationStates, emailState:false});
+            setValidationStates(prevState => ({ ...prevState, emailState: false }));
         }
 
     }, [formValues]);
@@ -51,11 +51,11 @@ function Login(){
         <Row xs={1}>
           <Col>
           <div>
-            <h1>Ejemplo de formularios!</h1>
+            <h1>Log in</h1>
             
             <Form>
             <Form.Group className="mb-6" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email" onChange={handleEmailChange} value={formValues.email}/>
             { !validationStates.emailState && <Form.Text className="text-muted">Incorrect format.</Form.Text>}
             </Form.Group>
@@ -63,10 +63,10 @@ function Login(){
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} value={formValues.password} />
-            { !validationStates.passwordState && <Form.Text className="text-muted">Your password  should be at least 8 char long</Form.Text>}
+            { !validationStates.passwordState && (<Form.Text className="text-muted">Password is not than 8 characters.</Form.Text>)}
             </Form.Group>
             <Button variant="primary" onClick={clickSubmit}>
-            Submit
+            Log in
             </Button>
         </Form>
         </div>
