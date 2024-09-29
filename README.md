@@ -3,11 +3,11 @@
 Este README cuenta con las siguientes secciones:
 
 1. [Cómo correr la aplicación](#1-cómo-correr-la-aplicación)
-2. [Reporte de decisiones](#reporte-de-decisiones)
-   - [Login](#login)
-   - [Home](#home)
-   - [Mock](#mock)
-   - [Detalle del ejercicio](#ver-detalle-ejercicio)
+2. [Reporte de decisiones](#2-reporte-de-decisiones)
+   - [Login](#a-login)
+   - [Home](#b-home)
+   - [Mock](#c-mock)
+   - [Detalle del ejercicio](#d-ver-detalle-del-ejercicio)
    - [i18n]()
 
 ## 1. Cómo correr la aplicación
