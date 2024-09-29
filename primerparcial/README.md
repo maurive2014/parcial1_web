@@ -1,3 +1,4 @@
+# El README.md de la aplicación se encuentra en la carpeta parcial1_web (es decir, afuera de esta carpeta)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
