@@ -31,7 +31,7 @@ function Home() {
     useEffect(() => {
 
         async function callAPI() {
-        await fetch('https://my.api.mockaroo.com/test_schema.json?key=eecfef40')
+        await fetch('https://my.api.mockaroo.com/test_schema.json?key=70f6caa0')
         .then(response => response.json())
         .then(data => {
             setCiudad(data.ciudad);

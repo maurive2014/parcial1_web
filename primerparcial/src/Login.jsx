@@ -15,7 +15,7 @@ function Login(){
     const navigate = useNavigate();
     useEffect(()=>{
 
-        if (formValues.password.length > 8){
+        if (formValues.password.length === 8){
           setValidationStates(prevState => ({ ...prevState, passwordState: true }));
         } else  {  
             setValidationStates(prevState => ({ ...prevState, passwordState: false }));

@@ -3,7 +3,7 @@
     "email":"email",
     "Password": "Password",
     "Incorrect format": "Incorrect format",
-    "Password is not than 8 characters": "Password is not than 8 characters",
+    "Password is not than 8 characters": "Password is not 8 characters",
     
     "Cycling":"Cycling",
     "Running": "Running",
