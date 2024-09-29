@@ -1,0 +1,16 @@
+{
+    "Log in": "Log in",
+    "email":"email",
+    "Password": "Password",
+    "Incorrect format": "Incorrect format",
+    "Password is not than 8 characters": "Password is not than 8 characters",
+    
+    "Cycling":"Cycling",
+    "Running": "Running",
+    "Swimming": "Swimming",
+    "Tour around the bay":"Tour around {city}'s bay",
+    "Cycling session":"Cycling session",
+    "Running session":"Running session",
+    "Swimming session":"Swimming session",
+    "Close":"Close"
+}

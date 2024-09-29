@@ -3,12 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {IntlProvider} from 'react-intl';
+import localeEsMessages from "./locales/es";
+import localeEnMessages from "./locales/en";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+//De default la página va a estar en inglés
+var localeLanguage = "en"
+var localeMessage = localeEnMessages
+
+var userLang = navigator.language || navigator.userLanguage; 
+
+if (userLang.includes("es-") || userLang==="es"){
+  localeLanguage = "es";
+  localeMessage = localeEsMessages;
+}
+
 root.render(
-  <React.StrictMode>
+  <IntlProvider locale={localeLanguage} messages= {localeMessage}>
     <App />
-  </React.StrictMode>
+  </IntlProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

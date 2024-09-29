@@ -1,0 +1,16 @@
+{
+    "Log in": "Entra",
+    "email":"Correo",
+    "Password": "Contraseña",
+    "Incorrect format": "Formato incorrecto",
+    "Password is not than 8 characters": "La contraseña no es de 8 caracteres",
+    
+    "Cycling":"Ciclismo",
+    "Running": "Carrera",
+    "Swimming": "Natación",
+    "Tour around the bay":"Recorrido alrededor de la bahía de {city}",
+    "Cycling session":"Sesión de ciclismo",
+    "Running session":"Sesión de carrera",
+    "Swimming session":"Sesión de natación",
+    "Close":"Cerrar"
+}

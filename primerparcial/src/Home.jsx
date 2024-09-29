@@ -9,7 +9,7 @@ import cycling from "./assets/cycling.jpg";
 import swimming from "./assets/background.jpg";
 import { useState, useEffect } from 'react';
 import { FaRunning, FaSwimmer, FaBicycle } from 'react-icons/fa'; 
-
+import {FormattedMessage} from 'react-intl';
 
 function Home() {
 
@@ -25,11 +25,13 @@ function Home() {
     const [tiempoSwimming, setTiempoSwimming] = useState("");
     const [distSwimming, setDistSwimming] = useState("");
 
-    const [showModal, setShowModal] = useState(false); // Modal visibility state
-    const [selectedCard, setSelectedCard] = useState(null); // Data for the selected card
+    const [showModal, setShowModal] = useState(false); 
+    const [selectedCard, setSelectedCard] = useState(null); 
 
     useEffect(() => {
-        fetch('https://my.api.mockaroo.com/test_schema.json?key=eecfef40')
+
+        async function callAPI() {
+        await fetch('https://my.api.mockaroo.com/test_schema.json?key=eecfef40')
         .then(response => response.json())
         .then(data => {
             setCiudad(data.ciudad);
@@ -43,15 +45,19 @@ function Home() {
             setDistSwimming(data.dist_swimming);
         })
         .catch(error => console.error('Error:', error));
+    }
+
+    callAPI()
+
     }, [])
 
-    // Handle card click
+    
     const handleCardClick = (cardType) => {
         setSelectedCard(cardType);
         setShowModal(true);
     };
 
-    // Handle modal close
+    
     const handleClose = () => setShowModal(false);
 
 
@@ -62,7 +68,7 @@ function Home() {
                 <Col>
                     <Row>
                         <Col md = {12} className="text-center">
-                            <h1>Cycling</h1>
+                            <h1><FormattedMessage id="Cycling"/></h1>
                         </Col>
                         {
                             array.map((_) =>
@@ -71,9 +77,9 @@ function Home() {
                                 <Card className="bg-dark text-white" onClick={() => handleCardClick('cycling')} style={{ cursor: 'pointer' }}>
                                 <Card.Img src={cycling} alt="Card image" style={{ height: '130px', objectFit: 'cover' }}/>
                                 <Card.ImgOverlay >
-                                    <Card.Title style = {{"font-size": "15px"}}>Cycling session</Card.Title>
+                                    <Card.Title style = {{"font-size": "15px"}}><FormattedMessage id="Cycling session"/></Card.Title> 
                                     <Card.Text style = {{"font-size": "7px"}}>
-                                    Recorrido alrededor de la bahía de {ciudad}<br />
+                                    <FormattedMessage id="Tour around the bay" values={{ city: ciudad }}/><br />
                                     {distCycling}K - {tiempoCycling}h
                                     </Card.Text>
                                     <Card.Text></Card.Text>
@@ -89,7 +95,7 @@ function Home() {
                 <Col>
                     <Row>
                         <Col md = {12} className="text-center">
-                            <h1>Running</h1>
+                            <h1><FormattedMessage id="Running"/></h1>
                         </Col>
                         {
                             array.map((_) =>
@@ -98,9 +104,9 @@ function Home() {
                                 <Card className="bg-dark text-white" onClick={() => handleCardClick('running')} style={{ cursor: 'pointer' }}>
                                 <Card.Img src={img} alt="Card image" />
                                 <Card.ImgOverlay>
-                                    <Card.Title style = {{"font-size": "15px"}}>Running session</Card.Title>
+                                <Card.Title style = {{"font-size": "15px"}}><FormattedMessage id="Running session"/></Card.Title> 
                                     <Card.Text style = {{"font-size": "8px"}}>
-                                    Recorrido alrededor de la bahía de {ciudad}<br />
+                                    <FormattedMessage id="Tour around the bay" values={{ city: ciudad }}/><br />
                                     {distCorriendo}K - {tiempoCorriendo}h
                                     </Card.Text>
                                     <Card.Text></Card.Text>
@@ -117,7 +123,7 @@ function Home() {
                 <Col>
                     <Row>
                         <Col md = {12} className="text-center">
-                            <h1>Swimming</h1>
+                            <h1><FormattedMessage id="Swimming"/></h1>
                         </Col>
                         {
                             array.map((_) =>
@@ -126,9 +132,9 @@ function Home() {
                                 <Card className="bg-dark text-white" onClick={() => handleCardClick('swimming')} style={{ cursor: 'pointer' }}>
                                 <Card.Img src={swimming} alt="Card image" />
                                 <Card.ImgOverlay>
-                                    <Card.Title style = {{"font-size": "15px"}}>Swimming session</Card.Title>
+                                    <Card.Title style = {{"font-size": "15px"}}><FormattedMessage id="Swimming session"/></Card.Title>
                                     <Card.Text style = {{"font-size": "8px"}}>
-                                    Recorrido alrededor de la bahía de {ciudad}<br />
+                                    <FormattedMessage id="Tour around the bay" values={{ city: ciudad }}/><br />
                                     {distSwimming}K - {tiempoSwimming}h
                                     </Card.Text>
                                     <Card.Text></Card.Text>
@@ -146,29 +152,29 @@ function Home() {
             <footer className="py-3 mt-4" style={{ backgroundColor: '#01616b', color: 'white' }}>
                 <Container fluid>
                     <Row className="align-items-center">
-                        {/* User's Image */}
+                        
                         <Col md={2}>
                             <img src={imagen} alt="User" className="img-fluid rounded-circle" style={{ width: '80px', height: '80px' }} />
                         </Col>
 
-                        {/* User's Name */}
+                        
                         <Col md={3}>
                             <h5>{nombre}</h5>
                         </Col>
 
-                        {/* Running Icon and Best Time */}
+                       
                         <Col md={2} className="d-flex align-items-center">
                             <FaRunning className="me-2" style={{ fontSize: '24px' }} />
                             <h5>{tiempoCorriendo}</h5>
                         </Col>
 
-                        {/* Swimming Icon and Best Time */}
+                        
                         <Col md={2} className="d-flex align-items-center">
                             <FaSwimmer className="me-2" style={{ fontSize: '24px' }} />
                             <h5>{tiempoSwimming}h</h5>
                         </Col>
 
-                        {/* Cycling Icon and Best Time */}
+                        
                         <Col md={2} className="d-flex align-items-center">
                             <FaBicycle className="me-2" style={{ fontSize: '24px' }} />
                             <h5>{tiempoCycling}h</h5>

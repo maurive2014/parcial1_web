@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import backgroundImage from './assets/background.jpg';
 import { useNavigate } from 'react-router-dom';
+import {FormattedMessage} from 'react-intl';
 
 function Login(){
 
@@ -66,22 +67,22 @@ function Login(){
         <Row xs={1}>
           <Col>
           <div>
-            <h1>Log in</h1>
+            <h1><FormattedMessage id="Log in"/></h1>
             
             <Form>
             <Form.Group className="mb-6" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" onChange={handleEmailChange} value={formValues.email}/>
-            { !validationStates.emailState && <Form.Text className="text-muted">Incorrect format.</Form.Text>}
+            <Form.Label><FormattedMessage id="Email"/></Form.Label>
+            <Form.Control type="Email" onChange={handleEmailChange} value={formValues.email}/>
+            { !validationStates.emailState && <Form.Text className="text-muted"><FormattedMessage id="Incorrect format"/>.</Form.Text>}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} value={formValues.password} />
-            { !validationStates.passwordState && (<Form.Text className="text-muted">Password is not than 8 characters.</Form.Text>)}
+            <Form.Label><FormattedMessage id="Password"/></Form.Label>
+            <Form.Control type="password" onChange={handlePasswordChange} value={formValues.password} />
+            { !validationStates.passwordState && (<Form.Text className="text-muted"><FormattedMessage id="Password is not than 8 characters"/>.</Form.Text>)}
             </Form.Group>
             <Button variant="primary" onClick={clickSubmit}>
-            Log in
+            <FormattedMessage id="Log in"/>
             </Button>
         </Form>
         </div>
