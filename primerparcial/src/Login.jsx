@@ -4,13 +4,14 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import backgroundImage from './assets/background.jpg';
+import { useNavigate } from 'react-router-dom';
 
 function Login(){
 
     const [formValues, setFormValues] = useState({email:"", password:""})
     const [validationStates, setValidationStates] = useState({emailState:false, passwordState:false})
-
+    const navigate = useNavigate();
     useEffect(()=>{
 
         if (formValues.password.length > 8){
@@ -31,7 +32,9 @@ function Login(){
 
     const clickSubmit = (() => {
         if (validationStates.emailState === true && validationStates.passwordState === true ){
-            
+          navigate("/home");
+        } else {
+          alert('Please enter valid email and password.');
         }
       })
 
@@ -47,7 +50,19 @@ function Login(){
 
 
     return ( 
-        <Container >
+      <div style={{ 
+        backgroundImage: `url(${backgroundImage})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        minHeight: '100vh', 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }}>
+        <Container style={{ 
+            backgroundColor: 'white', 
+            padding: '2rem',  
+        }}>
         <Row xs={1}>
           <Col>
           <div>
@@ -74,7 +89,7 @@ function Login(){
         </Row>
       </Container>
     
-    
+    </div>
     );
 }
 
